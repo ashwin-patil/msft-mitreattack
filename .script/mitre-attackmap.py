@@ -20,8 +20,6 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import requests
 import yaml
-from IPython.display import HTML, display
-from ipywidgets import Layout, widgets
 from pandas import json_normalize
 from requests_html import HTMLSession
 
