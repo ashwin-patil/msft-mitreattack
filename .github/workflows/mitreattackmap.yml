@@ -13,7 +13,7 @@ jobs:
       - name: 🍽️ Checkout the repo
         uses: actions/checkout@v3
         with:
-          path: main
+          path: gh-action
           fetch-depth: 0
 
       - name: 🐍 Set up Python 3.8
