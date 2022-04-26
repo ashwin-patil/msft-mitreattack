@@ -10,7 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🍽️ Checkout the repo
-        uses: actions/checkout@main
+        uses: actions/checkout@v3
+        with:
+          path: main
 
       - name: 🐍 Set up Python 3.8
         uses: actions/setup-python@v3
