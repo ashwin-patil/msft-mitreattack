@@ -2,7 +2,7 @@ name: Daily script to parse all Microsoft Sentinel and Microsoft Security Servic
 
 on:
   schedule:
-    - cron: "*/5 * * * *" # Runs at 00:00 AM (UTC) everyday (Check https://crontab.tech/)
+    - cron: "* */1 * * *" # Runs at 00:00 AM (UTC) everyday (Check https://crontab.tech/)
 
 jobs:
   download-nordvpnservers:
@@ -24,7 +24,7 @@ jobs:
           pip install requests pandas attackcti ruamel.yaml requests_html
 
       - name: 🚀 Run automation script
-        run: python  .script/mitre-attackmap.py
+        run: python  .script/mitre_attackmap.py
 
       - name: Commit files
         run: |
