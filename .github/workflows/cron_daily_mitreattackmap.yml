@@ -2,7 +2,7 @@ name: Daily script to parse all Microsoft Sentinel and Microsoft Security Servic
 
 on:
   schedule:
-    - cron: "* */25 * * *" # Runs at 00:00 AM (UTC) everyday (Check https://crontab.tech/)
+    - cron: "*/30 * * * *" # Runs at 00:00 AM (UTC) everyday (Check https://crontab.tech/)
 
 jobs:
   download-nordvpnservers:
