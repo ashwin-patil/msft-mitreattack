@@ -14,8 +14,6 @@ from datetime import date
 from pathlib import Path
 from requests.exceptions import HTTPError
 
-# import azure.functions as func
-import IPython
 import matplotlib.pyplot as plt
 import pandas as pd
 import requests
