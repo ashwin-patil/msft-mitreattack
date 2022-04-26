@@ -5,7 +5,7 @@ on:
     - cron: "*/15 * * * *" # Runs at 00:00 AM (UTC) everyday (Check https://crontab.tech/)
 
 jobs:
-  download-nordvpnservers:
+  download-mitreattackmap:
     name: Daily script to parse all Microsoft Sentinel and Microsoft Security Services Built-in Alerts
     runs-on: ubuntu-latest
     steps:
