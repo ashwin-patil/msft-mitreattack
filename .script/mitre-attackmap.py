@@ -14,7 +14,6 @@ from datetime import date
 from pathlib import Path
 from requests.exceptions import HTTPError
 
-import matplotlib.pyplot as plt
 import pandas as pd
 import requests
 import yaml
