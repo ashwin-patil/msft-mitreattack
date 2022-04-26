@@ -1,6 +1,7 @@
 name: Daily script to parse all Microsoft Sentinel and Microsoft Security Services Built-in Alerts
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "*/15 * * * *" # Runs at 00:00 AM (UTC) everyday (Check https://crontab.tech/)
 
