@@ -606,7 +606,7 @@ def get_mcas_alerts():
 
 def generate_navigator_layerfiles(inputfile, outputdir):
     # Read csv file as input
-    with open(inputfile, "r") as f:
+    with open(inputfile, "r", encoding="utf8") as f:
         reader = csv.DictReader(f)
         a = list(reader)
 
@@ -788,7 +788,6 @@ def main():
         out_path = (
             curr_path / "main" / "PublicFeeds" / "MITREATT&CK" / "MicrosoftSentinel.csv"
         )
-        layer_path = curr_path / "main" / "PublicFeeds" / "MITREATT&CK" / "Layers"
         try:
             out_path.parents[0].mkdir(parents=True, exist_ok=False)
         except FileExistsError:
@@ -886,7 +885,7 @@ def main():
         final.to_csv(out_path, index=False)
         logging.info(f"Output csv file written to : {out_path}")
         logging.info(f"Generating ATT&CK Navigation Layer Files : ")
-        generate_navigator_layerfiles(inputfile=out_path, outputdir=layer_path)
+        generate_navigator_layerfiles(inputfile=out_path, outputdir="Layers")
     except Exception as e:
         logging.error(f"Error Details: {e}")
 
