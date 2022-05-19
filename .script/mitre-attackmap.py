@@ -653,7 +653,7 @@ def generate_navigator_layerfiles(inputfile, output):
                 if metadata not in technique_mappings[technique["techniqueId"]]:
                     technique_mappings[technique["techniqueId"]].append(metadata)
 
-            VERSION = {"attack": "10", "navigator": "4.5.4", "layer": "4.3"}
+            VERSION = {"attack": "11", "navigator": "4.6.3", "layer": "4.3"}
             NAME = "{} Layer Json File for Microsoft Sentinel".format(k)
             DESCRIPTION = "{} ATT&CK Matrix Coverage for Microsoft Sentinel".format(k)
             DOMAIN = "mitre-enterprise"
