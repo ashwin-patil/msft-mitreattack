@@ -38,4 +38,6 @@ jobs:
           git commit -m "Adding updated MITRE Attackmap files" -a
 
       - name: Push changes
-        uses: ad-m/github-push-action@main
+        uses: ad-m/github-push-action@master
+        with: 
+          branch: main
