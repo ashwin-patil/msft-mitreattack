@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests pandas attackcti ruamel.yaml requests_html
+          pip install requests pandas attackcti pyyaml requests_html
 
       - name: 🚀 Run automation script
         run: python  main/.script/mitre-attackmap.py
