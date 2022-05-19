@@ -791,7 +791,6 @@ def main():
         layer_path = curr_path / "main" / "PublicFeeds" / "MITREATT&CK" / "Layers"
         try:
             out_path.parents[0].mkdir(parents=True, exist_ok=False)
-            layer_path.mkdir(parents=True, exist_ok=False)
         except FileExistsError:
             logging.info("Folder is already there")
         else:
