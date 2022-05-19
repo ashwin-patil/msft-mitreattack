@@ -206,7 +206,7 @@ def get_fusion_alerts():
         ],
     )
 
-    result = fusion_df.append(df2, ignore_index=True)
+    result = pd.concat([fusion_df, df2], ignore_index=True)
     result["DetectionType"] = "Fusion"
     result["DetectionService"] = "Microsoft Sentinel Fusion"
     result["DetectionURL"] = alerts_url
@@ -705,7 +705,9 @@ def main():
         # Export the whole dataset
         logging.info(f"Writing csv files to temporary directory")
         curr_path = Path.cwd()
-        out_path = curr_path / "output" / "MicrosoftSentinel.csv"
+        out_path = (
+            curr_path / "main" / "PublicFeeds" / "MITREATT&CK" / "MicrosoftSentinel.csv"
+        )
         try:
             out_path.parents[0].mkdir(parents=True, exist_ok=False)
         except FileExistsError:
@@ -797,9 +799,11 @@ def main():
         frames = [result, msft_df]
         final = pd.concat(frames)
 
+        logging.info(f"Final entries: Sentinel + MSFT Built-in alerts: {len(final)}")
+
         # Export the whole dataset with headers
         final.to_csv(out_path, index=False)
-
+        logging.info(f"Output csv file written to : {out_path}")
     except Exception as e:
         logging.error(f"Error Details: {e}")
 

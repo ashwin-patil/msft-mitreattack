@@ -28,7 +28,7 @@ jobs:
           pip install requests pandas attackcti ruamel.yaml requests_html
 
       - name: 🚀 Run automation script
-        run: python  .script/mitre-attackmap.py
+        run: python  main/.script/mitre-attackmap.py
 
       - name: Commit files
         run: |
@@ -38,4 +38,4 @@ jobs:
           git commit -m "Adding updated MITRE Attackmap files" -a
 
       - name: Push changes
-        uses: ad-m/github-push-action@master
+        uses: ad-m/github-push-action@main
