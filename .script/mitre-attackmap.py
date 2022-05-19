@@ -604,7 +604,7 @@ def get_mcas_alerts():
     return mcas_df
 
 
-def generate_navigator_layerfiles(inputfile, outputdir):
+def generate_navigator_layerfiles(inputfile, output):
     # Read csv file as input
     with open(inputfile, "r", encoding="utf8") as f:
         reader = csv.DictReader(f)
@@ -676,11 +676,11 @@ def generate_navigator_layerfiles(inputfile, outputdir):
             }
 
             # output layer files to directory
-            layerdir = outputdir
-            if not os.path.exists(layerdir):
-                os.makedirs(layerdir)
-            with open((f"./{layerdir}/{k}.json"), "w") as f:
-                print(f"Writing the Layer file for {k}")
+            if not os.path.exists(output):
+                logging.info("Creating directory {}".format(output))
+                os.makedirs(output)
+            with open((f"{output}/{k}.json"), "w") as f:
+                logging.info(f"Writing the Layer file for {k} in {output}")
                 f.write(json.dumps(platform_layer))
 
 
@@ -788,6 +788,7 @@ def main():
         out_path = (
             curr_path / "main" / "PublicFeeds" / "MITREATT&CK" / "MicrosoftSentinel.csv"
         )
+        layer_path = curr_path / "main" / "PublicFeeds" / "MITREATT&CK" / "Layers"
         try:
             out_path.parents[0].mkdir(parents=True, exist_ok=False)
         except FileExistsError:
@@ -885,7 +886,8 @@ def main():
         final.to_csv(out_path, index=False)
         logging.info(f"Output csv file written to : {out_path}")
         logging.info(f"Generating ATT&CK Navigation Layer Files : ")
-        generate_navigator_layerfiles(inputfile=out_path, outputdir="Layers")
+        generate_navigator_layerfiles(inputfile=out_path, output=layer_path)
+
     except Exception as e:
         logging.error(f"Error Details: {e}")
 
